@@ -5,13 +5,11 @@ def read_as_list(filepath):
         return [int(x) for x in f.readlines()]
 
 rawlist = read_as_list(listfile)
-prevnum = rawlist.pop(0)
 inctally = 0
 
-for n in rawlist:
-    #if new number > previous number, increment inctally
-    if n > prevnum:
-        inctally+=1
-    prevnum = n
+for idx,n in enumerate(rawlist):
+    if idx+3 < len(rawlist):
+        if rawlist[idx+3] > n:
+            inctally+=1
 
 print(inctally,"Increases")
